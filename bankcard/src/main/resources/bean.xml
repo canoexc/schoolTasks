@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd "
+        >
+    <context:component-scan base-package="com.exp"></context:component-scan>
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    <!-- 配置spring的Ioc,把service对象配置进来-->
+    <bean id="cardDao" class="com.exp.server.dao.CardDaoImpl"></bean>
+    <bean id="card" class="com.exp.server.service.CardImpl">
+        <property name="cd" ref="cardDao"></property>
+    </bean>
+    <!-- 配置Logger类 -->
+    <bean id="logger" class="com.exp.server.utils.addLogger"></bean>
+    <bean id="logCheck" class="com.exp.server.utils.loginCheck"></bean>
+    <!--配置AOP
+    <aop:config>
+        <aop:aspect id="logAdvice" ref="logger">
+           <aop:after method="printLogger" pointcut="execution(* com.exp.server.service.CardImpl.withdraw(java.lang.String,int))" arg-names="id,m"></aop:after>
+        </aop:aspect>
+        <aop:aspect id="logCheck" ref="logCheck">
+            <aop:after-returning method="checkResult" pointcut="execution(* com.exp.server.service.CardImpl.login())" arg-names="id" returning="id"></aop:after-returning>
+        </aop:aspect>
+    </aop:config>
+    -->
+</beans>
