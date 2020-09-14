@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>查看商品</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .mb-3 img{
+            height: 500px;
+            width: 500px;
+        }
+        .mb-3{
+            text-align: center;
+            display: grid;
+            justify-items: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="/static/css/navbar-top-fixed.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+    <a class="navbar-brand" href="/user/profile" th:text="'Hi!'+${session.user.username}"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/show/product/">所有商品<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/show/book" th:if="${session.user.authority==0}">我的订单</a>
+                <a class="nav-link" href="/addNew" th:if="${session.user.authority==1}">添加新商品</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/book/notice" th:if="${session.user.authority==0}">我的消息</a>
+                <a class="nav-link" href="/book/notice" th:if="${session.user.authority==1}">待处理</a>
+            </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0" action="/find/product" method="post">
+            <input class="form-control mr-sm-2" type="text" placeholder="输入商品名" name="s" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+    </div>
+</nav>
+
+
+<main role="main" class="container">
+    <div class="card mb-3" id="productDetail">
+        <img th:src="'http://localhost:8085/show/image?pid='+${product.pid}" class="card-img-top" alt="图片居中">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${product.pname}"></h5>
+            <h6 class="card-text" th:text="'详细：'+${product.detail}+' RMB'"></h6>
+            <h6 class="card-text" th:text="'定金：'+${product.pre}+' RMB'"></h6>
+            <h6 class="card-text" th:text="'尾款：'+${product.after}+' RMB'"></h6>
+            <h6 class="card-text" style="color: indianred" th:text="${product.state==0}?预售中:发售中" th:if="${product.state!=2}"></h6>
+            <h6 class="card-text" style="color: gray" th:text="商品支持7天无理由退货"></h6>
+            <form th:if="${product.state!=2&&session.user.authority!=1}" action="/book/info/" method="post">
+                <input type="hidden" name="pid" th:value="${product.pid}">
+            <div class="form-group form-check" >
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="ifUse">
+                <label class="form-check-label" for="exampleCheck1" th:text="'使用'+${session.user.point}+'积分抵'+${session.user.point}+'RMB'"></label>
+            </div>
+            <button type="submit" class="btn btn-primary" th:text="下单"></button>
+            </form>
+            <a th:href="'/state/product/'+${product.pid}" class="btn btn-primary" th:text="修改状态" th:if="${session.user.authority!=0}"></a>
+            <h6 class="card-text" style="color: gray" th:text="预售结束,等待正式发售" th:if="${product.state==2}"></h6>
+        </div>
+    </div>
+
+</main>
+</body>
+</html>
