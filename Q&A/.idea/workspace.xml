@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49d733c6-29ca-4c42-96dd-ac70ce304bcd" name="Default Changelist" comment="" />
+    <list default="true" id="49d733c6-29ca-4c42-96dd-ac70ce304bcd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +39,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -45,6 +50,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1UQon1q2mifWuFvW9Lo09XtRyqV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -205,10 +211,34 @@
       <workItem from="1586866709480" duration="764000" />
       <workItem from="1587622679354" duration="3799000" />
       <workItem from="1587698637616" duration="1713000" />
+      <workItem from="1589172581123" duration="2462000" />
+      <workItem from="1590157729862" duration="2045000" />
+      <workItem from="1591009486253" duration="334000" />
+      <workItem from="1591199083339" duration="663000" />
+      <workItem from="1592496134471" duration="2190000" />
+      <workItem from="1594896231938" duration="6414000" />
+      <workItem from="1595134353544" duration="600000" />
+      <workItem from="1598103100311" duration="686000" />
+      <workItem from="1598149826065" duration="19000" />
+      <workItem from="1598166187086" duration="6660000" />
+      <workItem from="1598428005809" duration="640000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

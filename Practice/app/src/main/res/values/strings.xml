@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Practice</string>
+    <string name="startButton">开始练习</string>
+    <string name="targetHint">距离目标</string>
+    <string name="target">59</string>
+    <string name="day">天</string>
+    <string name="main_background">TODO</string>
+    <string name="main_Head">main_Head</string>
+    <string name="profile">ptofile</string>
+    <string name="username">大野智</string>
+    <string name="targetAlert">距离目标</string>
+    <string name="wrong">wrong</string>
+    <string name="wrongtopic">错题本</string>
+    <string name="favorite">favorite</string>
+    <string name="favoritebook">收藏夹</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Login_hint">登 录</string>
+    <string name="Login_image">TODO</string>
+    <string name="Login_username">输入用户名</string>
+    <string name="Login_password">输入密码</string>
+    <string name="Signup">注 册</string>
+    <string name="confirm">再次确认密码</string>
+    <string name="search">搜索</string>
+    <string name="targetDay">设置目标日期</string>
+    <string name="Logout">退出登录</string>
+    <string name="exercise">练习列表</string>
+</resources>
